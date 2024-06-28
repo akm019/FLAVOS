@@ -129,7 +129,7 @@ const Navbar = () => {
                
               ) : (
                 <div className="relative">
-                <span className="cursor-pointer" onClick={toggleProfileMenu}>Welcome, {username}</span>
+                <span className="cursor-pointer" onClick={toggleProfileMenu}>Welcome {username}</span>
                 {isProfileMenuOpen && (
                   <ul className="absolute right-0 mt-8 bg-black text-white shadow-lg rounded-md overflow-hidden" onMouseLeave={toggleProfileMenu}>
                     <li>
