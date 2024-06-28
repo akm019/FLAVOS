@@ -23,7 +23,7 @@ const Cart = () => {
   return (
     <div className='bg-black min-h-screen text-white h-full flex flex-col items-center'>
       <button
-  class="cursor-pointer text-white font-bold relative text-[14px] w-[9em] h-[3em] text-center bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] rounded-[30px] z-10 hover:animate-gradient-xy hover:bg-[length:100%] before:content-[''] before:absolute before:-top-[5px] before:-bottom-[5px] before:-left-[5px] before:-right-[5px] before:bg-gradient-to-r before:from-violet-500 before:from-10% before:via-sky-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-[35px] before:hover:blur-xl before:transition-all before:ease-in-out before:duration-[1s] before:hover:bg-[length:10%] active:bg-violet-700 focus:ring-violet-700"
+  class=" mt-10 cursor-pointer text-white font-bold relative text-[14px] w-[9em] h-[3em] text-center bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] rounded-[30px] z-10 hover:animate-gradient-xy hover:bg-[length:100%] before:content-[''] before:absolute before:-top-[5px] before:-bottom-[5px] before:-left-[5px] before:-right-[5px] before:bg-gradient-to-r before:from-violet-500 before:from-10% before:via-sky-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-[35px] before:hover:blur-xl before:transition-all before:ease-in-out before:duration-[1s] before:hover:bg-[length:10%] active:bg-violet-700 focus:ring-violet-700"
 >
   CART
 </button>
@@ -34,7 +34,7 @@ const Cart = () => {
           <h1 className='font-bold text-3xl ml-10'>YOUR CART IS <span className='text-red-500'>EMPTY</span></h1></p>
         
       ) : (
-        <div className='w-[80%] mt-10'>
+        <div className='w-[80%]'>
           {cartItems.map(item => (
             <div key={item.id} className="mb-4 p-4 border border-white flex justify-between items-center bg-gray-800 rounded-md">
               <div className="flex items-center">
@@ -52,7 +52,7 @@ const Cart = () => {
               </div>
             </div>
           ))}
-          <Link to={`Checkout`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+          <Link to='/Checkout' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
             Buy Now
           </Link>
         </div>

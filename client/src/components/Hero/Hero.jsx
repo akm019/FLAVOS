@@ -7,6 +7,10 @@ import ani from '../../assets/MyAni5.json'
 import { Link } from 'react-router-dom';
 import Counter from './Counter';
 // import {checked} from '../Navbar/Menu'
+import Footer from './Footer';
+import ani2 from '../../assets/MyAni8.json'
+
+
 
 import indianImage from '../../assets/IND(FV).jpg'; // Assuming indian.jpg is your image path
 import chineseImage from '../../assets/CHI(FV).jpg'; // Assuming chinese.jpg is your image path
@@ -39,7 +43,7 @@ const Hero = () => {
 </button>
       <div className='flex flex-col justify-center items-center mt-[10rem]'>
         <div className='border-b-4 border-red-400 text-white sm:text-4xl lg:text-6xl font-bold inline-block'>
-          EXPLORE OUR MENU
+          EXPLORE OUR <span className='text-red-500'>MENU</span>
         </div>
       </div>
       <div className='flex flex-col justify-center items-center text-2xl font-light mt-10 text-white'>
@@ -69,12 +73,47 @@ Ready to explore? Click on the menu for a detailed look and place your order now
       </div>
       
       </div>
+      <div className=' flex flex-col items-center mt-[20%] lg:ml-24 p-4'>
+      <div className='border-b-4 border-red-400 text-white sm:text-4xl lg:text-6xl font-bold inline-block'>
+          EXPLORE OUR <span className='text-red-500'>RECIPE SECTION</span>
+        </div>
+        
+      <div className='flex flex-col sm:justify-center items-center lg:flex-row'>
+      <div className='sm:w-[40%] lg:w-[40%]'>
+        <Lottie animationData={ani2} />
+      </div>
+      <div className=' w-full lg:w-[50%] flex flex-col items-center lg:items-start lg:ml-8 mt-8'>
+        <p className="font-bold text-3xl text-white mb-4 text-center lg:text-left">
+          Don't wanna order? We got you covered!!!
+        </p>
+        <p className="text-white text-lg text-center lg:text-left mb-4 px-4 lg:px-0">
+          Welcome to our recipe section! If you're not in the mood to order, you can still find the perfect recipe for your needs right here. Explore a variety of delicious recipes and bring the taste of our kitchen to yours.
+        </p>
+        <Link to='/RecipeList'><button
+  class=" text-xl font-bold  relative py-4 px-12 w-full rounded-md bg-white isolation-auto z-10 border-2 border-red-700 before:absolute before:w-[50%] before:transition-all before:duration-700 before:hover:w-full hover:text-white before:-right-full before:hover:right-0 before:rounded-full before:bg-[#A12347] before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-700 inline-flex items-center justify-center  text-black bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+>
+ RECIPES
+</button></Link>
+      </div>
+    </div>
+      </div>
+
+     <div className='flex justify-center items-center mt-[15%]'>
+     
+     </div>
+      
+     
       <div className="min-h-screen flex items-center justify-center">
       <Counter />
     </div>
-     
+    <div>
+      <Footer/>
+
     </div>
-  );
+     
+   
+    </div>
+  )
 };
 
 export default Hero;
