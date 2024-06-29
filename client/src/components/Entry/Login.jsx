@@ -12,6 +12,7 @@ const Login = ({ toggleAuth }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
         axios.post("http://localhost:3000/auth/login", {
             email,
             password,

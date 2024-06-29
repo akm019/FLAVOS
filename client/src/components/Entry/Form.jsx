@@ -1,9 +1,9 @@
 // ProfileForm.js
 
 import React, { useState } from 'react';
-import MapWithGeocoder from './MapWithGeocoder';
+import MapWithGeocoder from '../Location/UserLocation';
 
-const ProfileForm = () => {
+const Form = () => {
   const [formData, setFormData] = useState({
     phoneNumber: '',
     address: {
@@ -62,4 +62,4 @@ const ProfileForm = () => {
   );
 };
 
-export default ProfileForm;
+export default Form;

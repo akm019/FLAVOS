@@ -16,6 +16,8 @@ import './index.css'; // Ensure this import is present for your global styles
 import UserLocation from './components/Location/UserLocation';
 import RecipeList from './components/Recipes/RecipeList';
 import Checkout from './components/Cart/Checkout';
+import Form from './components/Entry/Form.jsx'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -33,6 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path ="location" element={<UserLocation/>}/>
           <Route path ="RecipeList" element={<RecipeList/>}/>
           <Route path ="Checkout" element={<Checkout/>}/>
+          <Route path ="Form" element={<Form/>}/>
         </Route>
       </Routes>
     </Router>

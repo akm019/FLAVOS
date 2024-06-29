@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../../assets/Logo.png";
 import Menu from './Menu';
-
+import { logout } from '../Store/authSlice';
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
@@ -19,9 +19,9 @@ const Navbar = () => {
     setIsProfileMenuOpen(!isProfileMenuOpen);
   };
 
-  const handleLogin = (user) => {
+  const handleLogin = (User) => {
     setIsLoggedIn(true);
-    setUsername(user.name);
+    setUsername(User.name);
   };
 
   const handleLogout = () => {
@@ -133,7 +133,7 @@ const Navbar = () => {
                 {isProfileMenuOpen && (
                   <ul className="absolute right-0 mt-8 bg-black text-white shadow-lg rounded-md overflow-hidden" onMouseLeave={toggleProfileMenu}>
                     <li>
-                      <Link to="/profile" className="block px-4 py-2 hover:bg-gray-800">Profile</Link>
+                      <Link to="/Form" className="block px-4 py-2 hover:bg-gray-800">Profile</Link>
                     </li>
                     <li>
                       <span className="block px-4 py-2 hover:bg-gray-800 cursor-pointer" onClick={handleLogout}>Logout</span>
