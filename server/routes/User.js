@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/userModels.js';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const router = express.Router();
@@ -15,6 +16,7 @@ router.post('/signup', async (req, res) => {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: "User already exists" });
+           
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -39,7 +41,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
-        if (!user) {
+         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
 
@@ -50,7 +52,7 @@ router.post('/login', async (req, res) => {
 
         const token = jwt.sign({ username: user.username }, process.env.KEY, { expiresIn: '1hr' });
         res.cookie('token', token, { httpOnly: true, maxAge: 360000 });
-        return res.json({ status: true, message: "Login successful" });
+        return res.json({ status: true, message: "Login successful",name:user.username});
     } catch (error) {
         console.error("Error during login:", error);
         return res.status(500).json({ message: "Failed to login" });
@@ -96,5 +98,26 @@ router.post('/forgot-password', async (req, res) => {
         return res.status(500).json({ message: "Failed to process forgot password request" });
     }
 });
+
+
+
+router.post('/profile', async (req, res) => {
+    const { username, phone, address } = req.body;
+    try {
+      const user = await User.findOneAndUpdate(
+        { username },
+        { phone, address },
+        { new: true }
+      );
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      res.json(user);
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      res.status(500).json({ message: 'Failed to update profile' });
+    }
+  });
+
 
 export default router;
